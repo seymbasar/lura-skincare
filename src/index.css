@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-[#F9F8F6] text-[#1A1A1A] antialiased;
+}
