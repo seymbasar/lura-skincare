@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lura-skincare.vercel.app/sitemap.xml
