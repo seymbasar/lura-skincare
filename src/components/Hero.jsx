@@ -2,12 +2,12 @@ import heroImg from "../photos/heroimg.png";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-[100vh] flex flex-col justify-end overflow-hidden bg-[#F5F4F2]">
+    <section className="relative w-full h-[75vh] sm:h-[100vh] flex flex-col justify-end overflow-hidden bg-[#F5F4F2]">
       <div className="absolute inset-0 z-0">
         <img
           src={heroImg}
           alt="Lura Skincare"
-          className="w-full h-full object-cover object-right-top"
+          className="w-full h-full object-cover object-[65%_30%] sm:object-right-top"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#F5F4F2]/30"></div>
       </div>
@@ -22,7 +22,7 @@ const Hero = () => {
 
       <div className="relative z-30 w-full">
         <h1 className="text-[18vw] md:text-[16vw] font-extralight uppercase tracking-[-0.05em] leading-[0.8] text-[#D4B9B0] text-center select-none translate-y-1 md:translate-y-2 opacity-90">
-          Lura<span className="italic font-thin text-[#B09A91]">Skin</span>
+          Lura<span className="italic font-thin text-[#B09A91]">Skın</span>
         </h1>
       </div>
     </section>

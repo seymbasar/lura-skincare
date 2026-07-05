@@ -1,20 +1,25 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useToast } from "./ToastContext";
 
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
+  const { showToast } = useToast();
 
   const handleSubscribe = () => {
     const trimmed = email.trim();
     const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmed);
 
     if (!isValidEmail) {
-      alert("Lütfen geçerli bir e-posta adresi girin.");
+      showToast("Lütfen geçerli bir e-posta adresi girin.", "error");
       return;
     }
 
+    // NOT: Gerçek bir e-posta servisi (Mailchimp, Brevo vb.) entegrasyonu henüz yok.
+    // Şimdilik sadece kullanıcıya kayıt onayı gösteriyoruz.
     setSubscribed(true);
+    showToast("Kaydınız alındı, teşekkürler!");
     setEmail("");
     setTimeout(() => setSubscribed(false), 4000);
   };

@@ -1,11 +1,14 @@
 import { useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
+import { useToast } from "./ToastContext";
 import { productsData } from "./DataProducts";
 
 const BestSellers = () => {
   const navigate = useNavigate();
   const { addToCart } = useCart();
+  const { showToast } = useToast();
 
+  // Öne çıkan ürünler: gerçek ürün verisinden seçiliyor (ilk 3 ürün)
   const featuredProducts = productsData.slice(0, 3);
 
   return (
@@ -51,7 +54,10 @@ const BestSellers = () => {
               </div>
 
               <button
-                onClick={() => addToCart(product)}
+                onClick={() => {
+                  addToCart(product);
+                  showToast(`${product.name} sepete eklendi`);
+                }}
                 className="w-full bg-white/90 hover:bg-white text-[#1A1A1A] text-[10px] tracking-[0.2em] py-3 uppercase font-medium transition-colors duration-300"
               >
                 Sepete Ekle

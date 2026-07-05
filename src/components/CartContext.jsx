@@ -1,11 +1,35 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const CartContext = createContext();
 
 export const useCart = () => useContext(CartContext);
 
+const STORAGE_KEY = "lura-cart";
+
+// Sayfa ilk yüklendiğinde localStorage'da kayıtlı bir sepet var mı diye bakar.
+// Yoksa ya da bozuksa boş bir sepetle başlar.
+const loadCartFromStorage = () => {
+  try {
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : [];
+  } catch (error) {
+    console.error("Sepet localStorage'dan okunamadı:", error);
+    return [];
+  }
+};
+
 export const CartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(loadCartFromStorage);
+
+  // cartItems her değiştiğinde localStorage'a kaydeder,
+  // böylece sayfa yenilense veya tarayıcı kapatılıp açılsa bile sepet kaybolmaz.
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(cartItems));
+    } catch (error) {
+      console.error("Sepet localStorage'a kaydedilemedi:", error);
+    }
+  }, [cartItems]);
 
   const addToCart = (product) => {
     setCartItems((prev) => {

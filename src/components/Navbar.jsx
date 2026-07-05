@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useCart } from "./CartContext";
+import { useToast } from "./ToastContext";
 import { productsData } from "./DataProducts";
 
 const Navbar = () => {
@@ -10,6 +11,7 @@ const Navbar = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const navigate = useNavigate();
+  const { showToast } = useToast();
   const {
     cartItems,
     removeFromCart,
@@ -49,7 +51,7 @@ const Navbar = () => {
     if (confirmed) {
       clearCart();
       setIsCartOpen(false);
-      alert("Siparişiniz alındı! Teşekkür ederiz.");
+      showToast("Siparişiniz alındı! Teşekkür ederiz.");
     }
   };
 
@@ -78,7 +80,7 @@ const Navbar = () => {
           to="/"
           className="text-xl font-extralight tracking-[0.4em] uppercase cursor-pointer text-[#1A1A1A] hover:opacity-70 transition-opacity"
         >
-          Lura <span className="font-normal italic">SkinCare</span>
+          Lura <span className="font-normal italic">SkınCare</span>
         </Link>
 
         <div className="flex gap-4 md:gap-8 text-[10px] uppercase tracking-[0.3em] font-medium text-gray-700">
@@ -105,7 +107,7 @@ const Navbar = () => {
       >
         <div className="flex justify-between items-center px-6 py-6 border-b border-gray-100">
           <span className="text-xl font-extralight tracking-[0.4em] uppercase text-[#1A1A1A]">
-            Lura <span className="font-normal italic">SkinCare</span>
+            Lura <span className="font-normal italic">SkınCare</span>
           </span>
           <button
             onClick={() => setIsMenuOpen(false)}
