@@ -36,7 +36,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-16 mb-14 md:mb-20">
           <div className="sm:col-span-2 flex flex-col items-start">
             <h2 className="text-lg md:text-xl font-extralight tracking-[0.4em] uppercase mb-6 md:mb-8">
-              Lura<span className="font-normal italic">SkinCare</span>
+              Lura<span className="font-normal italic">SkınCare</span>
             </h2>
             <p className="text-[11px] text-gray-500 uppercase tracking-widest mb-6">
               Yeniliklerden ve dürüst içeriklerden haberdar olun.
