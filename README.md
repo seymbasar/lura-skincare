@@ -59,13 +59,17 @@ src/
 
 ## What I Learned
 
-This project was my first time building a complete React application from scratch, and it pushed me through the full lifecycle of a real product:
+This was my first time building a complete React application from scratch, and it took me through the full lifecycle of a real product — not just writing components, but designing, debugging, deploying, and documenting one:
 
-- **State management at scale** — moved from scattered `useState` calls to a proper Context-based architecture for cart and notifications
-- **Performance debugging** — diagnosed and fixed a 120MB media payload that was silently slowing the entire site down, using `ffmpeg` to compress video assets by over 90% without a visible quality loss
-- **Git workflows in practice** — resolved real authentication issues (GitHub's move away from password auth, Personal Access Tokens), untracked file cleanup, and large file warnings
-- **UX details that matter** — scroll-restoration on route change, toast feedback instead of blocking `alert()` calls, empty/error states for search and 404s
-- **SEO fundamentals** — meta tags, Open Graph previews, sitemap/robots.txt, and why they matter for a real deployed site
+- **Component architecture** — broke a single-page idea into over 20 reusable components (Navbar, Footer, product sections, about-page sections) and learned to decide what belongs in `pages/` versus `components/`
+- **State management at scale** — moved from scattered local state to a proper Context API architecture for the cart and toast notifications, including persisting cart state to `localStorage` so it survives page reloads
+- **Client-side routing** — set up React Router with static routes, a dynamic `/Products/:id` route for product detail pages, a catch-all 404 page, and scroll-restoration on navigation (a default browser behavior that doesn't come for free in SPAs)
+- **Real-world debugging** — fixed dead buttons and disconnected data (a "best sellers" section using fake products instead of the real catalog), inconsistent navigation, and missing empty/error states in search and product lookup
+- **Performance debugging** — diagnosed a 120MB media payload that was silently slowing the entire site down, and used `ffmpeg` to compress video assets by over 90% without a visible quality loss
+- **Git and deployment in practice** — resolved real authentication issues (GitHub's move away from password auth to Personal Access Tokens), recovered from months of untracked local changes never pushed to the remote, and understood how Vercel's auto-deploy pipeline reacts to a `git push`
+- **SEO and metadata** — added meta tags, Open Graph/Twitter cards, a favicon, `robots.txt`, and `sitemap.xml` — and learned why each of these matters once a site is actually public
+- **UX polish** — replaced blocking `alert()` calls with a custom toast notification system, added category filtering and price/name sorting to the product catalog, and built a product detail page with related-product suggestions
+- **Documentation as part of the job** — writing this README itself, including an honest roadmap of what's still missing (payments, legal pages, tests) rather than presenting the project as more finished than it is
 
 ## Roadmap
 
@@ -145,13 +149,17 @@ src/
 
 ## Bu Projede Öğrendiklerim
 
-Bu proje, sıfırdan tam bir React uygulaması kurma konusundaki ilk deneyimimdi ve beni gerçek bir ürünün tüm yaşam döngüsünden geçirdi:
+Bu, sıfırdan tam bir React uygulaması kurma konusundaki ilk deneyimimdi ve beni sadece component yazmakla kalmayıp; tasarlamak, hata ayıklamak, deploy etmek ve dokümante etmekten geçen gerçek bir ürünün tüm yaşam döngüsünden geçirdi:
 
-- **Ölçeklenebilir state yönetimi** — dağınık `useState` çağrılarından, sepet ve bildirimler için düzgün bir Context tabanlı mimariye geçtim
-- **Performans hata ayıklama** — sitenin tamamını sessizce yavaşlatan 120MB'lık medya yükünü tespit edip `ffmpeg` ile görsel kalite kaybı olmadan %90'ın üzerinde küçülttüm
-- **Gerçek hayatta Git iş akışları** — GitHub'ın şifre kimlik doğrulamasından Personal Access Token'a geçişi, izlenmeyen (untracked) dosya temizliği ve büyük dosya uyarıları gibi gerçek sorunları çözdüm
-- **Önemli UX detayları** — sayfa değişiminde scroll sıfırlama, engelleyici `alert()` yerine toast geri bildirimi, arama ve 404 için boş/hata durumları
-- **SEO temelleri** — meta etiketleri, Open Graph önizlemeleri, sitemap/robots.txt ve gerçek bir canlı site için neden önemli oldukları
+- **Component mimarisi** — tek bir sayfa fikrini 20'den fazla tekrar kullanılabilir component'e (Navbar, Footer, ürün bölümleri, hakkımızda sayfası bölümleri) böldüm ve neyin `pages/`'e, neyin `components/`'a ait olduğuna nasıl karar verileceğini öğrendim
+- **Ölçeklenebilir state yönetimi** — dağınık local state'lerden, sepet ve toast bildirimleri için düzgün bir Context API mimarisine geçtim; sepet state'ini `localStorage`'a kaydederek sayfa yenilense bile kaybolmamasını sağladım
+- **Client-side routing** — statik route'ların yanı sıra ürün detay sayfaları için dinamik bir `/Products/:id` route'u, tüm-yakalayan bir 404 sayfası ve sayfa değişiminde scroll sıfırlama (tarayıcının normalde otomatik yaptığı ama SPA'larda kendiliğinden gelmeyen bir davranış) kurdum
+- **Gerçek hayattan hata ayıklama** — işlevsiz butonları ve kopuk veriyi (gerçek katalog yerine sahte ürünler kullanan bir "en çok satanlar" bölümü), tutarsız navigasyonu, arama ve ürün bulmada eksik olan boş/hata durumlarını düzelttim
+- **Performans hata ayıklama** — sitenin tamamını sessizce yavaşlatan 120MB'lık medya yükünü tespit ettim ve `ffmpeg` ile video dosyalarını görsel kalite kaybı olmadan %90'ın üzerinde küçülttüm
+- **Gerçek hayatta Git ve deploy süreci** — GitHub'ın şifre kimlik doğrulamasından Personal Access Token'a geçişi gibi gerçek kimlik doğrulama sorunlarını çözdüm, aylardır uzak depoya hiç gönderilmemiş yerel değişiklikleri kurtardım ve Vercel'in otomatik deploy sürecinin bir `git push` işlemine nasıl tepki verdiğini anladım
+- **SEO ve meta veriler** — meta etiketleri, Open Graph/Twitter kartları, favicon, `robots.txt` ve `sitemap.xml` ekledim — ve bir site gerçekten yayına girdiğinde bunların her birinin neden önemli olduğunu öğrendim
+- **Kullanıcı deneyimi cilası** — engelleyici `alert()` çağrılarını özel bir toast bildirim sistemiyle değiştirdim, ürün kataloğuna kategori filtreleme ve fiyat/isme göre sıralama ekledim, ilgili ürün önerileri sunan bir ürün detay sayfası kurdum
+- **İşin bir parçası olarak dokümantasyon** — bu README'yi yazmanın kendisi de dahil olmak üzere, projeyi olduğundan daha bitmiş göstermek yerine hâlâ eksik olan şeylerin (ödeme, yasal sayfalar, testler) dürüst bir yol haritasını sunmak
 
 ## Yol Haritası
 
