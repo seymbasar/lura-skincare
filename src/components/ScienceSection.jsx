@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import fruit from "../photos/fruitandcream.png";
 import cream from "../photos/s-cream.mp4";
 import mask from "../photos/s-mask.mp4";
@@ -18,6 +19,7 @@ const ScienceSection = () => {
   };
 
   const videos = [cream, mask, serum];
+  const navigate = useNavigate();
 
   return (
     <section className="relative w-full py-14 md:py-20 bg-[#F5F4F2] overflow-hidden">
@@ -40,7 +42,10 @@ const ScienceSection = () => {
               Klinik düzeydeki araştırmaları bilinçli güzellikle birleştirerek
               konfor ve netlik sunan formüller yaratıyoruz.
             </p>
-            <button className="px-6 md:px-8 py-2 md:py-2.5 bg-white text-black rounded-full text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-black hover:text-white transition-all duration-500 shadow-md">
+            <button
+              onClick={() => navigate("/About")}
+              className="px-6 md:px-8 py-2 md:py-2.5 bg-white text-black rounded-full text-[9px] md:text-[10px] uppercase tracking-widest hover:bg-black hover:text-white transition-all duration-500 shadow-md"
+            >
               Daha Fazla Bilgi →
             </button>
           </div>
