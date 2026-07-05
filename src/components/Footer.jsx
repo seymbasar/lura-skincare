@@ -97,7 +97,7 @@ const Footer = () => {
 
         <div className="pt-8 border-t border-gray-200 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <span className="text-[9px] text-gray-400 tracking-widest uppercase">
-            © 2026 Lura Skincare. Tüm Hakları Saklıdır. <br /> ŞEYMANUR BAŞAR
+            © 2026 Lura Skıncare. Tüm Hakları Saklıdır. <br /> ŞEYMANUR BAŞAR
           </span>
           <div className="flex gap-8">
             <span className="text-[9px] text-gray-400 tracking-widest uppercase cursor-pointer hover:text-black">
